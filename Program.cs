@@ -17,26 +17,28 @@
 
 void barra()
 {
-    Console.ForegroundColor = ConsoleColor.White;
+    Console.ForegroundColor = ConsoleColor.DarkMagenta;
     Console.WriteLine("<=============================>");
 }
 
 
 
-
-
-Console.WriteLine("|====== Decomposição Decimais ======|");
-
+Console.Clear();
+Shin(00);
+Console.WriteLine("<=== Decomposição Decimais ===>");
+Shin(01);
 Console.Write("Digite a quantidade: ");
 int numero = Convert.ToInt32(Console.ReadLine());
-int restante = numero;
+int unidades = numero % 10;
+numero = numero / 10;
 
-int unidades = restante % 10;
-restante = restante / 10;
-
-int dezenas = restante % 10;
-restante /= 10;
-int centenas = restante;
-Console.WriteLine($"|O número possui: {Convert.ToString(numero).PadRight(18,'.').Substring(0,1)} Unidades |");
-Console.WriteLine($"|O número possui: {Convert.ToString(numero).PadRight(18,'.').Substring(1,1)} Dezenas |"); 
-Console.WriteLine($"|O número possui: {Convert.ToString(numero).PadRight(18,'.').Substring(2,Convert.ToString(numero).Length-2)} Centenas |");
+int dezenas = numero % 10;
+numero /= 10;
+int centenas = numero;
+barra();
+Shin(02);
+Console.WriteLine($"|O número possui: {Convert.ToString(unidades).PadLeft(2,'.')} Unidades |");
+Console.WriteLine($"|O número possui: {Convert.ToString(dezenas).PadLeft(2,'.')}  Dezenas |"); 
+Console.WriteLine($"|O número possui: {Convert.ToString(centenas).PadRight(2,'.')} Centenas |");
+barra();
+Console.ResetColor();
